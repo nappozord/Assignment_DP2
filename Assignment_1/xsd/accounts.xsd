@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+
+ <xsd:element name="all_account">
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element name="account" minOccurs="0" maxOccurs="unbounded">
+     <xsd:complexType>
+      <xsd:sequence>
+       <xsd:element name="holder" type="HolderType" minOccurs="1" maxOccurs="unbounded"/>
+       <xsd:element name="yearOperations" type="YearOperationsType" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="number" type="xsd:positiveInteger" use="required" />
+     </xsd:complexType>
+     <xsd:unique name="unique-year">
+      <xsd:selector xpath="yearOperations"></xsd:selector>
+      <xsd:field xpath="@year"></xsd:field>
+     </xsd:unique>
+    </xsd:element>
+   </xsd:sequence>
+  </xsd:complexType>
+  <xsd:unique name="unique-number">
+   <xsd:selector xpath="account"></xsd:selector>
+   <xsd:field xpath="@number"></xsd:field>
+  </xsd:unique>
+ </xsd:element>
+
+
+ <xsd:complexType name="HolderType">
+  <xsd:attribute name="fiscalID" type="FiscalIDType" use="required"/>
+  <xsd:attribute name="name" type="xsd:string" use="required"/>
+  <xsd:attribute name="address" type="xsd:string" use="required"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="YearOperationsType">
+  <xsd:sequence> 
+   <xsd:element name="operation" type="OperationType" minOccurs="1" maxOccurs="unbounded"/> 
+  </xsd:sequence> 
+  <xsd:attribute name="year" type="xsd:positiveInteger" use="required"/>
+ </xsd:complexType>
+ 
+ <xsd:simpleType name="Currency">
+  <xsd:restriction base="xsd:decimal"> 
+   <xsd:fractionDigits value="2"/> 
+  </xsd:restriction> 
+ </xsd:simpleType>
+
+ <xsd:complexType name="OperationType">
+  <xsd:all>
+    <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+  </xsd:all>
+  <xsd:attribute name="date" type="xsd:date" use="required"/>
+  <xsd:attribute name="amount" type="Currency" use="required"/>
+ </xsd:complexType>
+
+ <xsd:simpleType name="FiscalIDType">
+  <xsd:restriction base="xsd:string">
+   <xsd:pattern value="[a-zA-Z0-9]{16}"/>
+  </xsd:restriction>
+ </xsd:simpleType>
+</xsd:schema>

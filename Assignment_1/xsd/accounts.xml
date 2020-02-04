@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<all_account xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+             xsd:noNamespaceSchemaLocation="account.xsd">
+  <account number="123456">
+    <holder name="Elia" address="Via dei Pioppi, 20" fiscalID="ELIA123456789123"/>
+    <yearOperations year="1984">
+      <operation date="1984-12-12" amount="135.12"></operation>
+    </yearOperations>
+    <yearOperations year="1985">
+      <operation date="1984-11-11" amount="160"></operation>
+    </yearOperations>
+  </account>
+  <account number="123457">
+    <holder name="Elia" address="Via dei Pioppi, 20" fiscalID="ELIA123456789123"/>
+    <yearOperations year="1984">
+      <operation date="1984-12-12" amount="135.12"></operation>
+      <operation date="1984-11-11" amount="1"></operation>
+    </yearOperations>
+    <yearOperations year="1985">
+      <operation date="1984-11-11" amount="160"></operation>
+    </yearOperations>
+  </account>
+</all_account>

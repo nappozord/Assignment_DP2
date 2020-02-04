@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:biblio xmlns:tns="http://pad.polito.it/dp2/biblio"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://pad.polito.it/dp2/biblio biblio.xsd ">
+	<item id="0">
+		<author>T. Sauter</author>
+		<author>C. Schwaiger</author>
+		<title>Achievement of secure Internet access to fieldbus systems</title>
+		<article journal="0141-9331" issue="0" />
+		<citedBy>1</citedBy>
+	</item>
+	<item id="1">
+		<author>M. Cheminod</author>
+		<author>A. Pironti</author>
+		<author>R. Sisto</author>
+		<title>Formal Vulnerability Analysis of a Security System for Remote Fieldbus Access</title>
+		<article journal="1551-3203" issue="7" />
+		<citedBy>2</citedBy>
+	</item>
+	<item id="2">
+		<author>W. Richard Stevens</author>
+		<author>Bill Fenner</author>
+		<author>Andrew M. Rudoff</author>
+		<title>Unix network programming</title>
+		<subtitle>Volume 1: The sockets networking API</subtitle>
+		<book ISBN="0131411551" year="2004">
+			<publisher>Addison Wesley</publisher>
+		</book>
+		<citedBy>3</citedBy>
+	</item>
+	<item id="3">
+		<author>W. Richard Stevens</author>
+		<author>Bill Fenner</author>
+		<author>Andrew M. Rudoff</author>
+		<title>Unix network programming</title>
+		<subtitle>Volume 2: The sockets networking API</subtitle>
+		<book ISBN="0131411552" year="2004">
+			<publisher>Addison Wesley</publisher>
+		</book>
+	</item>
+
+	<item id="5">
+		<author>Ralf Kneuper</author>
+		<title>Limits of formal methods</title>
+		<article journal="0934-5043" issue="15" />
+	</item>
+	<item id="6">
+		<author>Aarti Gupta</author>
+		<title>Formal hardware verification methods: A survey</title>
+		<article journal="0925-9856" issue="16" />
+	</item>
+	<item id="7">
+		<author>Jade Alglave</author>
+		<title>A formal hierarchy of weak memory models</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="8">
+		<author>Martyn Thomas</author>
+		<title>Development methods for trusted computer systems</title>
+		<article journal="0934-5043" issue="18" />
+	</item>
+	<item id="9">
+		<author>M. J. A. Caswell</author>
+		<title>Equivalence of formal semantics definition methods</title>
+		<article journal="0934-5043" issue="18" />
+	</item>
+	<item id="10">
+		<author>Mandayam K. Srivas</author>
+		<author>Steven P. Miller</author>
+		<title>Applying formal verification to the AAMP5 microprocessor: A case study in the industrial use of formal methods</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="11">
+		<author>Hana Chockler</author>
+		<author>Ofer Strichman</author>
+		<title>Before and after vacuity</title>
+		<article journal="0925-9856" issue="19" />
+	</item>
+	<item id="12">
+		<author>Ashish Tiwari</author>
+		<title>Abstractions for hybrid systems</title>
+		<article journal="0925-9856" issue="19" />
+	</item>
+	<item id="13">
+		<author>Holger Gast</author>
+		<title>Reasoning about memory layouts</title>
+		<article journal="0925-9856" issue="16" />
+	</item>
+	<item id="14">
+		<author>Karin Quaas</author>
+		<title>MSO logics for weighted timed automata</title>
+		<article journal="0925-9856" issue="20" />
+	</item>
+	<item id="15">
+		<author>Pierre Ganty</author>
+		<author>Rupak Majumdar</author>
+		<author>Benjamin Monmege</author>
+		<title>Bounded underapproximations</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="16">
+		<author>Peter M. Maurer</author>
+		<title>Conjugate symmetry</title>
+		<article journal="0925-9856" issue="20" />
+	</item>
+	<item id="17">
+		<author>Véronique Cortier</author>
+		<author>Stéphanie Delaune</author>
+		<title>Safely composing security protocols</title>
+		<article journal="0925-9856" issue="19" />
+	</item>
+	<item id="18">
+		<author>Rüdiger Ehlers</author>
+		<title>Symbolic bounded synthesis</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="19">
+		<author>Stephen F. Siegel</author>
+		<title>Transparent partial order reduction</title>
+		<article journal="0925-9856" issue="19" />
+	</item>
+	<item id="20">
+		<author>Thomas Haigh</author>
+		<title>Assembling a prehistory for formal methods: a personal view</title>
+		<article journal="0934-5043" issue="21" />
+	</item>
+	<item id="21">
+		<author>Paul Loewenstein</author>
+		<title>A formal theory of simulations between infinite automata</title>
+		<article journal="0925-9856" issue="16" />
+	</item>
+	<item id="22">
+		<author>Saraswati Kalvala</author>
+		<title>Annotations in formal specifications and proofs</title>
+		<article journal="0925-9856" issue="16" />
+	</item>
+	<item id="23">
+		<author>Michael C. McFarland</author>
+		<title>Formal analysis of correctness of behavioral transformations</title>
+		<article journal="0925-9856" issue="20" />
+	</item>
+	<item id="24">
+		<author>Ramin Hojati</author>
+		<author>Robert K. Brayton</author>
+		<title>An environment for formal verification based on symbolic computations</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="25">
+		<author>Carl-Johan H. Seger</author>
+		<author>Randal E. Bryant</author>
+		<title>Formal verification by symbolic evaluation of partially-ordered trajectories</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="26">
+		<author>Peter Gorm Larsen</author>
+		<author>John S. Fitzgerald</author>
+		<author>Steve Riddle</author>
+		<title>Practice-oriented courses in formal methods using VDM++</title>
+		<article journal="0934-5043" issue="22" />
+	</item>
+	<item id="27">
+		<author>Akram Idani</author>
+		<author>Yves Ledru</author>
+		<title>Object oriented concepts identification from formal B specifications</title>
+		<article journal="0925-9856" issue="20" />
+	</item>
+	<item id="28">
+		<author>Leo Marcus</author>
+		<title>The incorporation of testing into formal verification: Direct, modular, and hierarchical correctness degrees</title>
+		<article journal="0925-9856" issue="20" />
+	</item>
+	<item id="29">
+		<author>Souvik Sengupta</author>
+		<author>Ranjan Dasgupta</author>
+		<title>Use of Semi-Formal and Formal Methods in Requirement Engineering of ILMS</title>
+		<article journal="0163-5948" issue="23" />
+	</item>
+	<item id="30">
+		<author>Christian Jacobi</author>
+		<author>Christoph Berg</author>
+		<title>Formal Verification of the VAMP Floating Point Unit</title>
+		<article journal="0925-9856" issue="20" />
+	</item>
+	<item id="31">
+		<author>C. B. Jones</author>
+		<title>Accommodating interference in the formal design of concurrent object-based programs</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="32">
+		<author>Alan Williams</author>
+		<title>The applicability of discrete performance estimation methods to VLSI design</title>
+		<article journal="0934-5043" issue="24" />
+	</item>
+	<item id="33">
+		<author>Haiyan Xiong</author>
+		<author>Paul Curzon</author>
+		<author>Sofiène Tahar</author>
+		<author>Ann Blandford</author>
+		<title>Providing a formal linkage between MDG and HOL</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="34">
+		<author>Stefan Kupferschmid</author>
+		<author>Matthew Lewis</author>
+		<author>Tobias Schubert</author>
+		<author>Bernd Becker</author>
+		<title>Incremental preprocessing methods for use in BMC</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="35">
+		<author>Sebastian Steinhorst</author>
+		<author>Lars Hedrich</author>
+		<title>Advanced methods for equivalence checking of analog circuits with strong nonlinearities</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="36">
+		<author>Ali Kassem</author>
+		<author>Yliès Falcone</author>
+		<author>Pascal Lafourcade</author>
+		<title>Formal analysis and offline monitoring of electronic exams</title>
+		<article journal="0925-9856" issue="19" />
+	</item>
+	<item id="37">
+		<author>Alexey Lvov</author>
+		<author>Luis A. Lastras-Montaño</author>
+		<author>Barry Trager</author>
+		<author>Viresh Paruthi</author>
+		<author>Robert Shadowen</author>
+		<author>Ali El-Zein</author>
+		<title>Verification of Galois field based circuits by formal reasoning based on computational algebraic geometry</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="38">
+		<author>Naveen Prakash</author>
+		<title>Towards a formal definition of methods</title>
+		<article journal="0947-3602" issue="25" />
+	</item>
+	<item id="39">
+		<author>A. I. Kondalev</author>
+		<title>Data format converters and formal-heuristic methods of their design</title>
+		<article journal="0011-4235" issue="26" />
+	</item>
+	<item id="40">
+		<author>Huimin Lin</author>
+		<title>PAM: A process algebra manipulator</title>
+		<article journal="0925-9856" issue="20" />
+	</item>
+	<item id="41">
+		<author>Holger Busch</author>
+		<title>Rule-based induction</title>
+		<article journal="0925-9856" issue="16" />
+	</item>
+	<item id="42">
+		<author>Ferhat Khendek</author>
+		<author>Gregor V. Bochmann</author>
+		<title>Merging behavior specifications</title>
+		<article journal="0925-9856" issue="20" />
+	</item>
+	<item id="43">
+		<author>Kathleen Fisher</author>
+		<title>Using formal methods to enable more secure vehicles</title>
+		<subtitle>DARPA's HACMS program</subtitle>
+		<article journal="0362-1340" issue="27" />
+	</item>
+	<item id="44">
+		<author>Mahesh Dodani</author>
+		<title>Formal methods for object-oriented software engineering</title>
+		<article journal="1022-7091" issue="28" />
+	</item>
+	<item id="45">
+		<author>Patrice Godefroid</author>
+		<title>Software Model Checking: The VeriSoft Approach</title>
+		<article journal="0925-9856" issue="17" />
+	</item>
+	<item id="46">
+		<author>P.YE. SHEVCHOUK</author>
+		<title>An application of the formal methods for the forecasting of mortality</title>
+		<article journal="2072-9480" issue="29" />
+	</item>
+	<item id="47">
+		<author>Patrick Allo</author>
+		<title>The Meaning of ‘Other’ in Classifications: Formal Methods Meet Artistic Research</title>
+		<article journal="2210-5433" issue="30" />
+	</item>
+	<item id="48">
+		<author>Karthikeyan Bhargavan</author>
+		<author>Carl A. Gunter</author>
+		<title>Network Event Recognition</title>
+		<article journal="0925-9856" issue="20" />
+	</item>
+	<item id="49">
+		<author>Antti Valmari</author>
+		<title>A stubborn attack on state explosion</title>
+		<article journal="0925-9856" issue="31" />
+	</item>
+	<item id="50">
+		<author>Valérie Roy</author>
+		<author>Robert De Simone</author>
+		<title>Auto/Autograph</title>
+		<article journal="0925-9856" issue="16" />
+	</item>
+	<item id="51">
+		<author>T. Bolognesi</author>
+		<title>Regrouping parallel processes</title>
+		<article journal="0925-9856" issue="20" />
+	</item>
+	<item id="52">
+		<author>Jan Friso Groote</author>
+		<title>Hiding propositional constants in BDDs</title>
+		<article journal="0925-9856" issue="19" />
+	</item>
+	<item id="53">
+		<author>Constance Heitmeyer</author>
+		<author>Jean-Pierre Talpin</author>
+		<title>Guest editorial</title>
+		<article journal="0925-9856" issue="19" />
+	</item>
+	<item id="54">
+		<author>Rob Hierons</author>
+		<title>Editorial: Formal methods and testing</title>
+		<article journal="0960-0833" issue="32" />
+	</item>
+	<journal ISSN="1022-7091">
+		<title>Springer Science and Business Media LLC</title>
+		<publisher>Springer Science and Business Media LLC</publisher>
+		<issue id="28" year="1996" number="1" />
+	</journal>
+	<journal ISSN="0011-4235">
+		<title>Springer Science and Business Media LLC</title>
+		<publisher>Springer Science and Business Media LLC</publisher>
+		<issue id="26" year="1984" number="4" />
+	</journal>
+	<journal ISSN="0960-0833">
+		<title>Wiley</title>
+		<publisher>Wiley</publisher>
+		<issue id="32" year="2002" number="2" />
+	</journal>
+	<journal ISSN="0925-9856">
+		<title>Springer Nature</title>
+		<publisher>Springer Nature</publisher>
+		<issue id="16" year="1992" number="9" />
+		<issue id="17" year="2012" number="2" />
+		<issue id="19" year="2009" number="1" />
+		<issue id="20" year="2011" number="3" />
+		<issue id="31" year="1992" number="4" />
+	</journal>
+	<journal ISSN="2072-9480">
+		<title>Co. Ltd. Ukrinformnauka</title>
+		<publisher>Co. Ltd. Ukrinformnauka</publisher>
+		<issue id="29" year="2011" number="2" />
+	</journal>
+	<journal ISSN="0362-1340">
+		<title>Association for Computing Machinery (ACM)</title>
+		<publisher>Association for Computing Machinery (ACM)</publisher>
+		<issue id="27" year="2014" number="9" />
+	</journal>
+	<journal ISSN="2210-5433">
+		<title>Springer Nature</title>
+		<publisher>Springer Nature</publisher>
+		<issue id="30" year="2017" number="4" />
+	</journal>
+	<journal ISSN="0934-5043">
+		<title>Springer Science and Business Media LLC</title>
+		<publisher>Springer Science and Business Media LLC</publisher>
+		<issue id="15" year="1997" number="4" />
+		<issue id="18" year="1989" number="1" />
+		<issue id="21" year="2019" number="6" />
+		<issue id="22" year="2009" number="3" />
+		<issue id="24" year="1993" number="2" />
+	</journal>
+	<journal ISSN="0163-5948">
+		<title>Association for Computing Machinery (ACM)</title>
+		<publisher>Association for Computing Machinery (ACM)</publisher>
+		<issue id="23" year="2015" number="1" />
+	</journal>
+	<journal ISSN="0947-3602">
+		<title>Springer Science and Business Media LLC</title>
+		<publisher>Springer Science and Business Media LLC</publisher>
+		<issue id="25" year="1997" number="1" />
+	</journal>
+	<journal ISSN="0141-9331">
+		<title>Microprocessors and Microsystems</title>
+		<publisher>Elsevier</publisher>
+		<issue id="0" number="7" year="2002" />
+	</journal>
+	<journal ISSN="1551-3203">
+		<title>IEEE Transactions on Industrial Informatics</title>
+		<publisher>IEEE</publisher>
+		<issue id="1" number="1" year="2011" />
+		<issue id="2" number="2" year="2011" />
+		<issue id="3" number="3" year="2011" />
+		<issue id="4" number="4" year="2011" />
+		<issue id="5" number="5" year="2011" />
+		<issue id="6" number="6" year="2011" />
+		<issue id="7" number="7" year="2011" />
+		<issue id="8" number="8" year="2011" />
+		<issue id="9" number="9" year="2011" />
+		<issue id="10" number="10" year="2011" />
+		<issue id="11" number="11" year="2011" />
+		<issue id="12" number="12" year="2011" />
+	</journal>
+</tns:biblio>

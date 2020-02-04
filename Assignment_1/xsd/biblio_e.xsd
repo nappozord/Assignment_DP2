@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="biblio">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="book" type="BookType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="article" type="ArticleType" maxOccurs="unbounded" minOccurs="0"/>
+				<xs:element name="journal" type="JournalType" maxOccurs="unbounded" minOccurs="0">
+					<xs:unique name="issueUniqueness">
+						<xs:selector xpath="issue" />
+						<xs:field xpath="@year" />
+						<xs:field xpath="@number" />
+					</xs:unique>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="unique-journal">
+			<xs:selector xpath="journal"/>
+			<xs:field xpath="@ISSN"/>
+		</xs:unique>
+		<xs:unique name="bookUniqueness">
+			<xs:selector xpath="book"/>
+			<xs:field xpath="ISBN"/>
+		</xs:unique>
+		<xs:key name="journalKey">
+			<xs:selector xpath="journal" />
+			<xs:field xpath="@ISSN" />
+		</xs:key>
+		<xs:keyref name="journalReference" refer="journalKey">
+			<xs:selector xpath="article" />
+			<xs:field xpath="journal" />
+		</xs:keyref>
+		<xs:key name="issueKey">
+			<xs:selector xpath="journal/issue" />
+			<xs:field xpath="@id"/>
+		</xs:key>
+		<xs:keyref name="issueReference" refer="issueKey">
+			<xs:selector xpath="article" />
+			<xs:field xpath="issue" />
+		</xs:keyref>
+	</xs:element>
+
+	<xs:complexType name="BiblioType">
+		<xs:sequence>
+			<xs:element name="author" type="xs:string" maxOccurs="unbounded"/>
+			<xs:element name="title" type="xs:string"/>
+			<xs:element name="subtitle" type="xs:string" minOccurs="0"/>
+			<xs:element name="citedBy" type="xs:integer" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:integer"/>
+	</xs:complexType>
+
+	<xs:complexType name="ArticleType">
+		<xs:complexContent>
+			<xs:extension base="BiblioType">
+				<xs:sequence>
+					<xs:element name="ISSN" type="ISSNCode"/>
+					<xs:element name="issue" type="xs:integer"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="BookType">
+		<xs:complexContent>
+			<xs:extension base="BiblioType">
+				<xs:sequence>
+					<xs:element name="publisher" type="xs:string"/>
+					<xs:element name="ISBN" type="ISBNCode"/>
+					<xs:element name="year" type="xs:gYear"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="JournalType">
+		<xs:sequence>
+			<xs:element name="title" type="xs:string"/>
+			<xs:element name="publisher" type="xs:string"/>
+			<xs:element name="issue" maxOccurs="unbounded" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="id" type="xs:integer" use="required"/>
+					<xs:attribute name="year" type="xs:gYear" use="required"/>
+					<xs:attribute name="number" type="xs:positiveInteger" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ISSN" type="ISSNCode" use="required"/>
+	</xs:complexType>
+		
+	<!-- ISBN code is a 10 or 13 digit code. If it is 10 digits long the last digit may be a X -->  
+	<xs:simpleType name="ISBNCode">
+	  <xs:restriction base="xs:string">
+	   <xs:pattern value="[0-9]{13}"/>
+	   <xs:pattern value="[0-9]{9}([0-9]|X)"/>
+	  </xs:restriction>
+	</xs:simpleType>
+	
+	<!-- ISSN code is a 8 digit code with a dash dividing the two groups
+	     of 4 digits and the last digit may be a X -->  
+	<xs:simpleType name="ISSNCode">
+	  <xs:restriction base="xs:string">
+	   <xs:pattern value="[0-9]{4}-[0-9]{3}([0-9]|X)"/>
+	  </xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
+

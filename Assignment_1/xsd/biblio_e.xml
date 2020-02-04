@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblio xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+            xs:noNamespaceSchemaLocation="biblio_e.xsd">
+    <book id="0">
+        <author>W. Richard Stevens</author>
+        <author>Bill Fenner</author>
+        <author>Andrew M. Rudoff</author>
+        <title>Unix network programming</title>
+        <subtitle>Volume 1: The sockets networking API</subtitle>
+        <publisher>Addison Wesley</publisher>
+        <ISBN>0131411551</ISBN>
+        <year>2004</year>
+    </book>
+    <article id="1">
+        <author>T. Sauter</author>
+        <author>C. Schwaiger</author>
+        <title>Achievement of secure Internet access to fieldbus systems</title>
+        <citedBy>2</citedBy>
+        <ISSN>0141-9331</ISSN>
+        <issue>0</issue>
+    </article>
+    <article id="2">
+        <author>M. Cheminod</author>
+        <author>A. Pironti</author>
+        <author>R. Sisto</author>
+        <title>Formal Vulnerability Analysis of a Security System for Remote Fieldbus Access</title>
+        <ISSN>1551-3203</ISSN>
+        <issue>12</issue>
+    </article>
+    <journal ISSN="0141-9331">
+        <title>Microprocessors and Microsystems</title>
+        <publisher>Elsevier</publisher>
+        <issue id="0" year="2002" number="7"/>
+    </journal>
+    <journal ISSN="1551-3203">
+        <title>IEEE Transactions on Industrial Informatics</title>
+        <publisher>IEEE</publisher>
+        <issue id="1" year="2011" number="2"/>
+        <issue id="2" year="2011" number="11"/>
+        <issue id="3" year="2011" number="10"/>
+        <issue id="4" year="2011" number="9"/>
+        <issue id="5" year="2011" number="8"/>
+        <issue id="6" year="2011" number="1"/>
+        <issue id="7" year="2011" number="12"/>
+        <issue id="8" year="2011" number="3"/>
+        <issue id="9" year="2011" number="4"/>
+        <issue id="10" year="2011" number="5"/>
+        <issue id="11" year="2011" number="6"/>
+        <issue id="12" year="2011" number="7"/>
+    </journal>
+</biblio>

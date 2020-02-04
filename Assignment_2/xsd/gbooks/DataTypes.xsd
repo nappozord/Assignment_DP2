@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="SearchResultForCrossref">
+		<xsd:sequence>
+			<xsd:element ref="message" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="message">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="next-cursor" type="xsd:string" />
+				<xsd:element name="total-results" type="xsd:positiveInteger" />
+				<xsd:element name="items" minOccurs="0" maxOccurs="unbounded" type="VolumeInfo"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="SearchResult">
+		<xsd:sequence>
+			<xsd:element name="totalItems" type="xsd:positiveInteger" />
+			<xsd:element ref="items" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="items">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="selfLink" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="volumeInfo" type="VolumeInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="VolumeInfo">
+		<xsd:sequence>
+			<xsd:element name="title" type="xsd:string"/>
+			<xsd:element name="subtitle" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="authors" type="xsd:string" maxOccurs="unbounded"/>
+			<xsd:element name="author" type="authorType" maxOccurs="unbounded" minOccurs="0"/>
+			<xsd:element name="publisher" type="xsd:string"/>
+			<xsd:element name="publishedDate" type="xsd:gYear"/>
+			<xsd:element ref="issued" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="industryIdentifiers" type="IndustryIdentifier" maxOccurs="unbounded"/>
+				<xsd:element name="ISBN" type="ISBNCode" maxOccurs="unbounded" />
+			</xsd:choice>
+			<xsd:element name="URL" type="xsd:anyURI" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="authorType">
+		<xsd:sequence>
+			<xsd:element name="given" type="xsd:string"/>
+			<xsd:element name="family" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="issued">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="date-parts" maxOccurs="unbounded" type="xsd:integer"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="IndustryIdentifier">
+		<xsd:sequence>
+			<xsd:element name="type">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"> 
+						   <xsd:enumeration value="ISBN_10"/>
+						   <xsd:enumeration value="ISBN_13"/>
+					</xsd:restriction> 
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="identifier" type="ISBNCode" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="YearType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{4}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!-- ISBN code is a 10 or 13 digit code. If it is 10 digits long the last digit may be a X -->  
+	<xsd:simpleType name="ISBNCode"> 
+	  <xsd:restriction base="xsd:string"> 
+	   <xsd:pattern value="[0-9]{13}"/>
+	   <xsd:pattern value="[0-9]{9}([0-9]|X)"/>
+	  </xsd:restriction> 
+	</xsd:simpleType>
+</xsd:schema>

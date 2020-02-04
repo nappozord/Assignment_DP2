@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="build" name="BIB-1">
+	<description>
+			Script for DP2-BIB Assignment 1 (Lab 2 and 3)
+	</description>
+
+	<!-- The "BibReaderFactory" used for BibInfo and as data generator for tests -->
+	<property name="BibInfo.BibReaderFactory" value="it.polito.dp2.BIB.Random.BibReaderFactoryImpl" />
+
+	<!-- The default output file for BibInfoSerializer -->
+	<property name="output" location="${java.io.tmpdir}/out1.xml"/>
+
+	<!-- The default test class -->
+	<property name="test.class" value="it.polito.dp2.BIB.ass1.tests.BibTests" />
+
+	<!-- The default sourceFileName -->
+	<property name="sourceFileName" value="xsd/biblio.xml" />
+
+	<property name="ass1.location" location="." />
+	<property name="src.dir" location="${ass1.location}/src" />
+	<property name="build.dir" location="${ass1.location}/build" />
+	<property name="lib.dir" location="${ass1.location}/lib" />
+	<property name="gen.dir" location="${ass1.location}/gen-src" />
+	<property name="xsd.dir" location="${ass1.location}/xsd" />
+	<property name="lib.jar" value="ass1.jar" />
+	<property name="xsd.sol" location="${xsd.dir}/biblio_e.xsd" />
+	<property name="jaxb.package" value="it.polito.dp2.BIB.sol1.jaxb" />
+	
+	<property name="debug" value="true" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.8" />
+	<property name="source" value="1.8" />
+
+	<!-- The classpath to be used for compilation of the solution -->
+	<path id="BIB.classpath">
+		<pathelement location="${lib.dir}/BIB.jar" />
+	</path>
+	
+	<!-- Target init -->
+	<target name="init">
+		<mkdir dir="${build.dir}" />
+	</target>
+
+	<!-- Target chk-bindings -->
+	<target name="-chk-bindings">
+		<uptodate property="generate-bindings.notRequired" targetfile="${gen.dir}/.flagfile">
+			<srcfiles dir="${xsd.dir}" includes="**/*.xsd" />
+		</uptodate>
+	</target>
+
+	<!-- Target generate-bindings -->
+	<target name="generate-bindings" unless="generate-bindings.notRequired" depends="init,-chk-bindings" description="Generate bindings from schema">
+		<exec executable="xjc" failonerror="true" >
+			<arg value="-d" />
+			<arg value="${gen.dir}" />
+			<arg value="-p" />
+			<arg value="${jaxb.package}" />
+			<arg value="${xsd.sol}" />
+		</exec>
+		<touch file="${gen.dir}/.flagfile" />
+	</target>
+
+	<!-- Target clean -->
+	<target name="clean" description="Clean all">
+		<delete dir="${build.dir}" />
+		<delete includeemptydirs="true">
+		  <fileset dir="${gen.dir}" includes="**/*" defaultexcludes="false"/>
+		</delete>
+		<delete includeemptydirs="true">
+		    <fileset dir="${ass1.location}" includes="temp*/**" defaultexcludes="false"/>
+		</delete>
+	</target>
+
+	<!-- Target build for compiling solutions and related artifacts -->
+	<target name="build" depends="init, generate-bindings" description="Build the solution of Assignment 1">
+		<echo>Building the submitted solution (if needed)...</echo>
+		<javac 
+			destdir="${build.dir}"
+			debug="${debug}"
+			debuglevel="${debuglevel}"
+			source="${source}"
+			target="${target}"
+			includeantruntime="false">
+				<src path="${src.dir}"/>
+				<src path="${gen.dir}"/>
+				<include name="it/polito/dp2/BIB/sol1/**" />
+				<classpath>
+					<path refid="BIB.classpath" />
+				</classpath>
+		</javac>
+		<echo>Done.</echo>
+	</target>
+
+	<!-- Target for compiling the BibInfo application -->
+	<target name="buildBibInfo" description="Build the sample application">
+		<echo>Building BibInfo (if needed)...</echo>
+		<mkdir dir="${build.dir}" />
+		<javac 
+			destdir="${build.dir}"
+			debug="${debug}"
+			debuglevel="${debuglevel}"
+			source="${source}"
+			target="${target}"
+			includeantruntime="false">
+				<src path="${src.dir}" />
+				<include name="it/polito/dp2/BIB/ass1/BibInfo.java" />
+				<classpath>
+					<path refid="BIB.classpath" />
+				</classpath>
+		</javac>
+		<echo>Done.</echo>
+	</target>
+
+	<!-- Target for running the BibInfo application -->
+	<target name="BibInfo" depends="buildBibInfo" description="Run the sample application">
+		<java classname="it.polito.dp2.BIB.ass1.BibInfo" failonerror="true" fork="yes">
+			<sysproperty key="it.polito.dp2.BIB.Random.sourceFileName" value="${sourceFileName}"/>
+			<sysproperty key="it.polito.dp2.BIB.BibReaderFactory" value="${BibInfo.BibReaderFactory}"/>
+			<classpath>
+				<path refid="BIB.classpath" />
+				<pathelement location="${lib.dir}/BIBRandom.jar"/>
+				<pathelement path="${build.dir}"/>
+			</classpath>
+		</java>
+	</target>
+
+	<!-- Target for running the solution of Lab2 (i.e. the BibInfoSerializer application) -->
+	<target name="BibInfoSerializer" depends="build" description="Run the BibInfoSerializer application">
+		<echo>Output file: ${output}</echo>
+		<echo>Input file: ${sourceFileName}</echo>
+		<echo />
+		<java classname="it.polito.dp2.BIB.sol1.BibInfoSerializer" failonerror="true" fork="yes">
+			<sysproperty key="it.polito.dp2.BIB.Random.sourceFileName" value="${sourceFileName}"/>
+			<sysproperty key="it.polito.dp2.BIB.BibReaderFactory" value="${BibInfo.BibReaderFactory}" />
+			<arg value="${output}" />
+			<classpath>
+				<path refid="BIB.classpath" />
+				<pathelement location="${lib.dir}/BIBRandom.jar"/>
+				<pathelement path="${build.dir}" />
+			</classpath>
+		</java>
+		<echo>Done.</echo>
+	</target>
+	
+	<target name="runFuncTest" depends="build" description="Perform the final acceptance tests on the solutions of Labs 1-3">
+		<tempfile property="temp.dir" destdir="${ass1.location}" prefix="temp"/>
+		<tempfile property="temp.xmlfile" destdir="${temp.dir}" prefix="out" suffix=".xml"/>
+
+		<echo>The tests will run using '${temp.dir}' as working directory.</echo>
+		<echo>Input file: ${sourceFileName}</echo>
+		<echo />
+		
+		<echo>Copying the necessary files to the working directory...</echo>
+		<copy todir="${temp.dir}/xsd">
+			<fileset dir="${xsd.dir}"/>
+		</copy>
+		<echo>Files copied.</echo>
+
+		<echo>Running the BibInfoSerializer...</echo>
+		<antcall target="BibInfoSerializer">
+			<param name="output" value="${temp.xmlfile}"/>
+		</antcall>
+		
+		<echo>Validating the generated XML file: ${temp.xmlfile} with ${lib.jar}</echo>
+		<java fork="yes" classname="it.polito.dp2.xml.XMLSchemaValidator" failonerror="false" dir="${temp.dir}" resultproperty="validation_result">
+			<arg path="${temp.dir}/xsd/biblio_e.xsd"/>
+			<arg path="${temp.xmlfile}"/>
+			<classpath>
+				<pathelement location="${lib.dir}/${lib.jar}"/>
+			</classpath>
+		</java>
+		<fail status="125" message="*** XML validation FAILED ***">
+			<condition>
+				<not>
+					<equals arg1="0" arg2="${validation_result}"/>
+				</not>
+			</condition>
+		</fail>
+		<echo>*** XML file validated ***</echo>
+
+		<echo>Running the tests ...</echo>
+		<junit printsummary="yes" dir="${temp.dir}" fork="yes" haltonfailure="no" showoutput="no" filtertrace="true">
+			<sysproperty key="it.polito.dp2.BIB.Random.sourceFileName" value="${sourceFileName}"/>
+			<sysproperty key="it.polito.dp2.BIB.sol1.BibInfo.file" value="${temp.xmlfile}"/>
+			<formatter type="xml" usefile="true"/>
+			<formatter type="plain" usefile="false"/>
+			<test haltonfailure="no" failureproperty="test_failed" outfile="testout" name="${test.class}"/>
+			<classpath>
+				<path refid="BIB.classpath" />
+				<pathelement location="${lib.dir}/BIBRandom.jar"/>
+				<pathelement path="${build.dir}" />
+				<pathelement location="${lib.dir}/${lib.jar}"/>
+				<pathelement location="${lib.dir}/junit-4.12.jar"/>
+				<pathelement location="${lib.dir}/hamcrest-core-1.3.jar"/>
+			</classpath>
+		</junit>
+		<fail if="test_failed" status="126" message="*** Some Tests FAILED ***"/>
+		<echo>*** All Tests PASSED  ***</echo>
+
+		<delete dir="${temp.dir}"/>
+
+	</target>
+	
+	<!-- Target make-final-zip for building the final zip containing the solution -->
+	<target name="make-zip" description="make zip to be submitted">
+		<zip destfile="ass1.zip"
+			basedir="${ass1.location}"
+		    includes="src/it/polito/dp2/BIB/sol1/**/*.java xsd/*"
+		/>
+	</target>
+</project>

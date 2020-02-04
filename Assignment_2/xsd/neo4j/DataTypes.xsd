@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="node">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="labels" type="xsd:anyURI" />
+				<xsd:element name="self" type="xsd:anyURI" />
+				<xsd:element ref="data" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="data">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="title" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="relationship">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="self" type="xsd:anyURI" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="data_rel">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="to" type="xsd:string"/>
+				<xsd:element name="type" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="traversal">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="order" type="xsd:string"/>
+				<xsd:element name="uniqueness" type="xsd:string"/>
+				<xsd:element ref="relationships"/>
+				<xsd:element name="max_depth" type="xsd:integer"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="relationships">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="direction" type="xsd:string"/>
+				<xsd:element name="type" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

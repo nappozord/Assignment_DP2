@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<account
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" 
+    xsd:noNamespaceSchemaLocation="account.xsd" number="123456">
+  <holder name="Elia" address="Via dei Pioppi, 20"/>
+</account>
